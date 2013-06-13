@@ -1,0 +1,75 @@
+body {
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-weight: 200;
+  color: #333;
+  margin: 0;
+  padding: 0;
+  background-color: hsl(275, 50%, 10%);
+}
+
+#container {
+  position: relative;
+  width: 1200px;
+  margin: 0 auto;
+  margin-top: 40px;
+}
+
+.rack-container {
+  margin: 0 auto;
+  position: absolute;
+  top: 600px;
+}
+
+#controls {
+  margin-top: 20px;
+  text-align: center;
+  font-weight: bold;
+}
+
+#controls a {
+  text-decoration: none;
+  color: #5BC0DE;
+}
+
+#play, #stop {
+  display: none;
+}
+
+canvas {
+  position: absolute;
+  top: 50px;
+  height: 512px;
+  width: 1200px;
+  background-color: hsl(275, 50%, 10%);
+  display: block;
+  margin: 0 auto;
+}
+
+#right-curtain {
+  top: 50px;
+  position: absolute;
+  z-index: 99;
+  height: 512px;
+  width: 100px;
+  background-image: -moz-linear-gradient(right,
+    hsla(275, 50%, 10%, 0) 1%, hsla(275, 50%, 10%, 1) 100%
+  );
+  background-image: -webkit-linear-gradient(right,
+    hsla(275, 50%, 10%, 0) 1%, hsla(275, 50%, 10%, 1) 100%
+  );
+}
+
+#left-curtain {
+  position: absolute;
+  top: 50px;
+  z-index: 99;
+  left: 1100px;
+  height: 512px;
+  width: 100px;
+  background-image: -moz-linear-gradient(left,
+    hsla(275, 50%, 10%, 0) 1%, hsla(275, 50%, 10%, 1) 100%
+  );
+  background-image: -webkit-linear-gradient(left,
+    hsla(275, 50%, 10%, 0) 1%, hsla(275, 50%, 10%, 1) 100%
+  );
+}

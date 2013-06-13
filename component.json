@@ -1,0 +1,31 @@
+{
+  "name": "spectrograph",
+  "repo": "web-audio-components/spectrograph",
+  "description": "A simple spectrograph web audio component",
+  "version": "0.0.1",
+  "author": "Jordan Santell <jsantell@gmail.com>",
+  "twitter": "@jsantell",
+  "keywords": [
+    "web-audio",
+    "frequency",
+    "spectrum",
+    "spectrogram",
+    "spectrograph",
+    "domain"
+  ],
+  "dependencies": {
+    "jsantell/interpolate-color": "*"
+  },
+  "development": {
+    "jsantell/allen" : "*",
+    "component/event" : "*",
+    "web-audio-components/rack" : "*"
+  },
+  "license": "MIT",
+  "scripts": [
+    "index.js"
+  ],
+  "web-audio": {
+    "type": "tool"
+  }
+}
