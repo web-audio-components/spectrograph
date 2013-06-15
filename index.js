@@ -6,7 +6,9 @@ function Spectrograph (context, opts) {
   var p = this.meta.params;
   var module = this;
 
-  this.input = this.output = context.createAnalyser();
+  this.input = this.output =context.createAnalyser();
+  this.processor = context.createScriptProcessor(256, 1, 1);
+
   this.fft = new Uint8Array(this.input.frequencyBinCount);
 
   'speed range minH minS minL maxH maxS maxL'.split(' ').forEach(function (prop) {
@@ -22,13 +24,11 @@ function Spectrograph (context, opts) {
   this.h = opts.canvas.height;
   this.w = opts.canvas.width;
 
-  function loop () {
+  this.input.connect(this.processor);
+  this.processor.onaudioprocess = function loop () {
     module.input.getByteFrequencyData(module.fft);
     process(module);
-    setTimeout(loop, module.speed);
-  }
-
-  setTimeout(loop, this.speed);
+  };
 }
 
 function process (mod) {
@@ -36,14 +36,13 @@ function process (mod) {
   var fft = mod.fft;
   var range = mod.range / 22100 * fft.length;
   var data = ctx.getImageData(0, 0, mod.w, mod.h);
-  ctx.clearRect(0, 0, mod.w, mod.h);
-  ctx.putImageData(data, -1, 0);
+  ctx.putImageData(data, -mod.speed, 0);
   for (var i = 0; i <= range; i++) {
     ctx.fillStyle = interpolate(mod.minColor, mod.maxColor, fft[i] / 255);
     ctx.fillRect(
-      mod.w - 1,
+      mod.w - mod.speed,
       ~~(mod.h - (mod.h / range * i)),
-      1,
+      mod.speed,
       Math.ceil(mod.h / range) || 1
     );
   }
@@ -52,13 +51,16 @@ function process (mod) {
 var spectrographProperties = {
   connect: {
     value: function (dest) {
-      this.output.connect( dest.input ? dest.input : dest );
+      this.output.connect(dest.input ? dest.input : dest);
+      this.processor.connect(dest.input ? dest.input : dest);
     }
   },
 
   disconnect: {
     value: function () {
       this.output.disconnect();
+      this.processor.disconnect();
+      this.output.connect(this.processor);
     }
   },
 
@@ -73,7 +75,7 @@ var spectrographProperties = {
       params: {
         speed: {
           min: 1,
-          max: 100,
+          max: 20,
           defaultValue: 1,
           type: "int",
           description: "How many ms between each FFT update"
