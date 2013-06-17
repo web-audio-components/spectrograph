@@ -34,7 +34,7 @@ function Spectrograph (context, opts) {
 function process (mod) {
   var ctx = mod.ctx;
   var fft = mod.fft;
-  var range = mod.range / 22100 * fft.length;
+  var range = mod.range / ctx.sampleRate * fft.length;
   var data = ctx.getImageData(0, 0, mod.w, mod.h);
   ctx.putImageData(data, -mod.speed, 0);
   for (var i = 0; i <= range; i++) {
@@ -76,12 +76,12 @@ var spectrographProperties = {
         speed: {
           min: 1,
           max: 20,
-          defaultValue: 1,
+          defaultValue: 2,
           type: "int",
           description: "How many ms between each FFT update"
         },
         range: {
-          values: [5625, 8000, 11250, 22500],
+          values: [4096, 8192, 11250, 22500],
           defaultValue: 11250,
           type: "enum",
           description: "Max frequency of the analysis"
