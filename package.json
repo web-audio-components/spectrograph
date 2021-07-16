@@ -27,5 +27,16 @@
     "dist/spectrograph.module.js.map",
     "dist/spectrograph.umd.js",
     "dist/spectrograph.umd.js.map"
-  ]
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/web-audio-components/spectrograph.git"
+  },
+  "keywords": [],
+  "author": "Jordan Santell <jsantell@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/web-audio-components/spectrograph/issues"
+  },
+  "homepage": "https://github.com/web-audio-components/spectrograph#readme"
 }
