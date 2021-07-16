@@ -1,0 +1,31 @@
+{
+  "name": "@web-audio-components/spectrograph",
+  "version": "0.0.0",
+  "type": "module",
+  "source": "index.js",
+  "exports": "./dist/spectrograph.modern.js",
+  "main": "./dist/spectrograph.cjs",
+  "module": "./dist/spectrograph.module.js",
+  "unpkg": "./dist/spectrograph.umd.js",
+  "scripts": {
+    "build": "microbundle",
+    "dev": "microbundle watch",
+    "prepublish": "npm run build"
+  },
+  "devDependencies": {
+    "microbundle": "latest"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "spectrograph.cjs",
+    "spectrograph.cjs.map",
+    "spectrograph.modern.js",
+    "spectrograph.modern.js.map",
+    "spectrograph.module.js",
+    "spectrograph.module.js.map",
+    "spectrograph.umd.js",
+    "spectrograph.umd.js.map"
+  ]
+}

@@ -1,2 +1,12 @@
 build
 components
+
+# built files
+/dist
+
+# npm stuff
+/node_modules
+*.log
+
+# I often work with mac-people
+.DS_Store
