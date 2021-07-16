@@ -19,13 +19,13 @@
     "access": "public"
   },
   "files": [
-    "spectrograph.cjs",
-    "spectrograph.cjs.map",
-    "spectrograph.modern.js",
-    "spectrograph.modern.js.map",
-    "spectrograph.module.js",
-    "spectrograph.module.js.map",
-    "spectrograph.umd.js",
-    "spectrograph.umd.js.map"
+    "dist/spectrograph.cjs",
+    "dist/spectrograph.cjs.map",
+    "dist/spectrograph.modern.js",
+    "dist/spectrograph.modern.js.map",
+    "dist/spectrograph.module.js",
+    "dist/spectrograph.module.js.map",
+    "dist/spectrograph.umd.js",
+    "dist/spectrograph.umd.js.map"
   ]
 }
