@@ -1,0 +1,42 @@
+{
+  "name": "@web-audio-components/spectrograph",
+  "version": "0.0.0",
+  "type": "module",
+  "source": "index.js",
+  "exports": "./dist/spectrograph.modern.js",
+  "main": "./dist/spectrograph.cjs",
+  "module": "./dist/spectrograph.module.js",
+  "unpkg": "./dist/spectrograph.umd.js",
+  "scripts": {
+    "build": "microbundle",
+    "dev": "microbundle watch",
+    "prepublish": "npm run build"
+  },
+  "devDependencies": {
+    "microbundle": "latest"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "dist/spectrograph.cjs",
+    "dist/spectrograph.cjs.map",
+    "dist/spectrograph.modern.js",
+    "dist/spectrograph.modern.js.map",
+    "dist/spectrograph.module.js",
+    "dist/spectrograph.module.js.map",
+    "dist/spectrograph.umd.js",
+    "dist/spectrograph.umd.js.map"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/web-audio-components/spectrograph.git"
+  },
+  "keywords": [],
+  "author": "Jordan Santell <jsantell@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/web-audio-components/spectrograph/issues"
+  },
+  "homepage": "https://github.com/web-audio-components/spectrograph#readme"
+}

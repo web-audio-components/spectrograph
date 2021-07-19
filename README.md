@@ -6,7 +6,7 @@ A spectrograph web audio component
 
 ## Installation
 
-$ component install web-audio-components/spectrograph
+$ npm install @web-audio-components/spectrograph
 
 ## Example Usage
 
